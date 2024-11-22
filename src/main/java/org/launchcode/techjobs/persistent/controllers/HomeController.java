@@ -72,6 +72,7 @@ public class HomeController {
             jobRepository.save(newJob);
 
 
+
         model.addAttribute("title","Error, employee mot found");
 
 
@@ -81,7 +82,12 @@ public class HomeController {
     @GetMapping("view/{jobId}")
     public String displayViewJob(Model model, @PathVariable int jobId) {
 
-            return "view";
+        Optional<Job> opjob=jobRepository.findById(jobId);
+        if(opjob.isPresent()) {
+            model.addAttribute("job", (Job) opjob.get());
+
+        }
+        return "view";
     }
 
 }

@@ -31,9 +31,10 @@ public class Job extends AbstractEntity {
     }
 
     // Initialize the id and value fields.
-    public Job(Employer anEmployer, List<Skill> someSkills) {
+    public Job(String name, Employer anEmployer, List<Skill> someSkills) {
         //to do  : list of skills  not integers
-        super();
+        //super();
+        this.setName(name);
         this.employer = anEmployer;
         // parse the skils
         //this.setSkills(someSkills);
