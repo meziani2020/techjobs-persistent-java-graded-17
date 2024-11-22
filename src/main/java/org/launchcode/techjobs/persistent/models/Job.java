@@ -21,6 +21,8 @@ public class Job extends AbstractEntity {
     @JoinColumn(name="employer_id")
     private Employer employer;
 
+
+    @ManyToMany
     private List<Skill> skills=new ArrayList<>();
 
 
@@ -29,12 +31,13 @@ public class Job extends AbstractEntity {
     }
 
     // Initialize the id and value fields.
-    public Job(Employer anEmployer, List<Integer> someSkills) {
+    public Job(Employer anEmployer, List<Skill> someSkills) {
+        //to do  : list of skills  not integers
         super();
         this.employer = anEmployer;
         // parse the skils
-
-        //this.skills = someSkills;
+        //this.setSkills(someSkills);
+        this.skills = someSkills;
     }
 
     // Getters and setters.
